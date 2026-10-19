@@ -1,0 +1,22 @@
+services:
+  plantao:
+    build: .
+    image: plantao-dashboard
+    container_name: plantao-dashboard
+    restart: unless-stopped
+    ports:
+      # host:container — ajuste a porta do host conforme o ambiente do supervisor
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DB_PATH: /app/data/plantao.sqlite
+      # Sob um subcaminho no reverse proxy, defina o prefixo público (ex.: /plantao/).
+      # Na raiz, deixe "/" (padrão).
+      BASE_PATH: ${BASE_PATH:-/}
+    volumes:
+      # persiste o banco SQLite fora do container (sobrevive a redeploys)
+      - plantao-data:/app/data
+
+volumes:
+  plantao-data:

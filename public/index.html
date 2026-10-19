@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <!-- href é reescrito pelo servidor conforme BASE_PATH (ex.: /plantao/) para
+       funcionar sob um subcaminho; todos os caminhos abaixo são RELATIVOS a ele. -->
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plantão · Equipe de Demonstração</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="nav" class="nav">
+      <span class="nav-title">Plantão · Suporte</span>
+      <nav class="nav-links">
+        <button id="nav-calendar" class="nav-btn">Escala</button>
+        <button id="nav-analysts" class="nav-btn">Analistas</button>
+        <button id="nav-schedules" class="nav-btn">Planilhas</button>
+        <button id="nav-closing" class="nav-btn">Fechamento</button>
+        <button id="nav-backup" class="nav-btn">Backup</button>
+      </nav>
+    </header>
+
+    <main id="view" class="view"></main>
+    <div id="toast" class="toast" hidden></div>
+  </div>
+
+  <script src="js/vendor/html2canvas.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
